@@ -1,0 +1,31 @@
+<main class="container mt-5">
+    <h1 class="pt-3">Gestión de Autores</h1>
+    <a class="btn btn-primary text-white add" routerLink="autor-add">
+      <i class="fas fa-user-plus"></i> Agregar
+    </a>
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">FECHA_NAC</th>
+            <th scope="col">DNI</th>
+            <th scope="col">OPTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of autoresList; index as i">
+            <th scope="row">{{ item.id  }}</th>
+            <td>{{ item.nombres }}</td>
+            <td>{{ item.apellidos }}</td>
+            <td>{{ item.fecha_nac }}</td>
+            <td>{{ item.dni }}</td>
+            <td>
+                <a class="btn btn-success" (click)="onEdit(item)">Editar</a> |
+                <a class="btn btn-danger" (click)="onDelete(item.id)">Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</main>
